@@ -1,11 +1,8 @@
-
-
-import 'package:app_structure/data/network/api_class.dart';
+import 'package:app_structure/data/api/api_class.dart';
 import 'package:app_structure/res/constant/app_strings.dart';
 import 'package:app_structure/utils/color_print.dart';
 import 'package:app_structure/utils/utils.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-
 import 'package:flutter/services.dart';
 
 class APIFunction {
@@ -19,12 +16,12 @@ class APIFunction {
       if (connectivityResult == ConnectivityResult.wifi || connectivityResult == ConnectivityResult.mobile) {
         return true;
       } else {
-        Utils.showSnackBar( message: AppStrings.noInternetAvailable);
+        Utils.showSnackBar(message: AppStrings.noInternetAvailable);
         return false;
       }
     } on PlatformException catch (e) {
       printError(e.toString());
-      Utils.showSnackBar( message: AppStrings.noInternetAvailable);
+      Utils.showSnackBar(message: AppStrings.noInternetAvailable);
       return false;
     }
   }
